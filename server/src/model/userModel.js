@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import connectDB from "../config/db";
+import connectDB from "../config/db.js";
 
 const userSchema = new mongoose.Schema({
     username: {
@@ -23,7 +23,6 @@ const userSchema = new mongoose.Schema({
     timestamps: true
 })
 
-const { usersDB } = connectDB();
-const User = usersDB.model('User', userSchema);
+const User = mongoose.model('User', userSchema);
 
 export default User;

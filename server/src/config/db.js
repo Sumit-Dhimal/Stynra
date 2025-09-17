@@ -1,28 +1,15 @@
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
 
-// NOTE: mongoose.createConnection -> does not return promise so the function should not be asynchoronus
+//console.log(process.env.MONGO_URI);
 
-const connectDB = () => {
+const connectDB = async() => {
     try {
-        const conn = mongoose.createConnection(process.env.MONGO_URI);
-    
-        // single cluster -> multiple databse
-        const usersDB = conn.useDb("usersDB");
-        
-        conn.once('open', () => {
-            console.log("MongoDB connected successfully");
-        });
-
-        conn.on('error', (err) => {
-            console.error(`MongoDB connection Error: ${err.message}`);
-        })    
-
-        return { usersDB };
+        const conn = await mongoose.connect(process.env.MONGO_URI);
+        console.log(`MongoDB connected: ${conn.connection.host}`);
     } catch (error) {
         console.error(`MongoDB connection failed: ${error.message}`);
         process.exit(1);
     }
-    
 }
 
 export default connectDB;
