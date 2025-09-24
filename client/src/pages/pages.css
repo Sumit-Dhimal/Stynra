@@ -1,0 +1,24 @@
+@import 'tailwindcss';
+
+.form_label {
+  @apply block text-xl font-medium text-gray-700 mb-1;
+}
+
+.form_input {
+  @apply border border-gray-300 
+         focus:outline-sky-500 focus:border-sky-500
+         invalid:[&:not(:placeholder-shown)]:border-pink-500 
+         invalid:[&:not(:placeholder-shown)]:outline-pink-500
+         invalid:[&:not(:placeholder-shown)]:text-pink-500
+         rounded-xs mb-4 h-8 w-full py-5 px-2;
+}
+
+
+.btn_1 {
+  @apply w-full px-5 py-2 bg-orange-400 rounded-xs font-semibold text-xl text-white cursor-pointer;
+}
+
+.google {
+  @apply w-full flex items-center justify-center gap-2 text-xl  border border-gray-300 rounded-xs 
+        py-2 px-5 cursor-pointer bg-gray-200 hover:bg-gray-100 sm:max-w-[500px]; 
+}
