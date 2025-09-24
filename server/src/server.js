@@ -16,7 +16,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 // routes
-app.use('/api/users', userRoute);
+app.use('/users', userRoute);
 
 
 app.get('/api', (req, res) => {
