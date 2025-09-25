@@ -10,12 +10,12 @@
          invalid:[&:not(:placeholder-shown)]:border-pink-500 
          invalid:[&:not(:placeholder-shown)]:outline-pink-500
          invalid:[&:not(:placeholder-shown)]:text-pink-500
-         rounded-xs mb-4 h-8 w-full py-5 px-2;
+         rounded-xs mb-8 h-10 w-full py-5 px-2;
 }
 
 
 .btn_1 {
-  @apply w-full px-5 py-2 bg-orange-400 rounded-xs font-semibold text-xl text-white cursor-pointer;
+  @apply w-full px-5 py-2 bg-orange-500 hover:bg-orange-400 rounded-xs font-semibold text-xl text-white cursor-pointer;
 }
 
 .google {
