@@ -1,7 +1,4 @@
-import {Routes, Route, useLocation} from 'react-router-dom';
-import Home from './pages/Home';
-import Register from './pages/Register';
-import Login from './pages/Login';
+import {Routes, Route, useLocation, Outlet} from 'react-router-dom';
 import Navbar from './components/Navbar';
 
 const App = () => {
@@ -18,12 +15,10 @@ const App = () => {
         !hideNavbarPaths.includes(location.pathname) && <Navbar />
       }
 
-      {/* Routes */}
-      <Routes>
-        <Route path='/' element={<Home/>} />
-        <Route path='/register' element={<Register />} />
-        <Route path='/login' element={<Login />} />
-      </Routes>
+      <div>
+        {/* renders child element */}
+        <Outlet /> 
+      </div>
     </div>
   )
 }

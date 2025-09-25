@@ -52,6 +52,8 @@ const Register = () => {
             required
             placeholder='confirm password' 
           />
+
+          {/* privacy and policy */}
           <div className='flex items-center my-4'>
             <label className='text-justify text-xs'>
               By clicking in register you have agreed with our {' '}
