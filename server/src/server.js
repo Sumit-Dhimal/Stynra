@@ -7,7 +7,7 @@ import errorMiddleware from './middleware/errorMiddleware.js';
 
 dotenv.config();
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 6000;
 connectDB();
 
 // middleware
@@ -16,7 +16,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 // routes
-app.use('/users', userRoute);
+app.use('/api/users', userRoute);
 
 
 app.get('/api', (req, res) => {

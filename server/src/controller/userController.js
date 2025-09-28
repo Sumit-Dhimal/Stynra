@@ -63,7 +63,7 @@ const getUserByID = asyncHandler(async(req, res) => {
 // @des     Login User
 // @route   POST api/users/login
 // @access  Public
-const loginUser = async(req, res) => {
+const loginUser = asyncHandler(async(req, res) => {
     const {email, password} = req.body;
 
     const user = await User.findOne({email});
@@ -81,7 +81,7 @@ const loginUser = async(req, res) => {
             message: "Invalid E-mail or Password"
         })
     }
-}
+})
 
 
 // @des     Login User
