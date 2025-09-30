@@ -4,20 +4,27 @@ import { FcGoogle } from "react-icons/fc";
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 
+
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
 
   const navigate = useNavigate();
 
   async function handleSubmit(e) {
     e.preventDefault();
+    setError('');
 
     try {
+      setLoading(true);
       const res = await axios.post('/api/users/login', {
         email,
         password
       });
+      
+      localStorage.setItem("user", JSON.stringify(res.data));
 
       alert('Login successfully');
       console.log(res.data);
@@ -25,7 +32,9 @@ const Login = () => {
       navigate('/');
     } catch (err) {
       console.error(err.response);
-      alert(err.response?.data?.message || "Something went wrong");
+      setError(err.response?.data?.message || "Something went wrong");
+    } finally {
+      setLoading(false);
     }
   }
 
@@ -60,13 +69,18 @@ const Login = () => {
             placeholder='password'
             onChange={(e) => setPassword(e.target.value)}
           />
+          
+          {/* error message */}
+          {error && (
+            <p className='text-red-500 text-sm mt-2' >{error}</p>
+          )}
 
           {/* submit button */}
           <button 
             type='submit' 
             className='btn_1'
           >
-            Login Now
+            {loading? "Logging in ..." : "Login Now"}
           </button>
 
         </form>   
