@@ -44,13 +44,20 @@ const Navbar = () => {
 
         {
           profileOpen && (
-            <div className="absolute right-4 top-16 bg-white shadow-md rounded-lg py-2 w-40">
+            <div className="absolute right-4 top-16 bg-white shadow-md rounded-lg py-2 w-40 font-semibold">
               <Link 
                 to="/profile" 
                 className="block px-4 py-2 hover:bg-gray-100"
                 onClick={() => setProfileOpen(false)}
               >
                 Profile
+              </Link>
+              <Link 
+                to="/profile" 
+                className="block px-4 py-2 hover:bg-gray-100"
+                onClick={() => setProfileOpen(false)}
+              >
+                Payment
               </Link>
               <button 
                 onClick={() => {
