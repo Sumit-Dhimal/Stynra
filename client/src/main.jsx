@@ -6,17 +6,22 @@ import App from './App.jsx';
 import Home from './pages/Home';
 import Register from './pages/Register';
 import Login from './pages/Login';
+import { AuthProvider } from './context/AuthContext.jsx';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path='/' element={<App />}>
-        <Route path='/' element={<Home/>} />
-        <Route path='/register' element={<Register />} />
-        <Route path='/login' element={<Login />} /> 
+        <Route index element={<Home/>} /> {/* Default route */}
+        <Route path='register' element={<Register />} />
+        <Route path='login' element={<Login />} /> 
+
+        {/* Protected Routes */}
     </Route>
   )
 )
 
 createRoot(document.getElementById('root')).render(
-  <RouterProvider router={router} />
+  <AuthProvider>
+    <RouterProvider router={router} />
+  </AuthProvider>
 )

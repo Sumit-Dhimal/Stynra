@@ -1,8 +1,9 @@
-import {useState} from 'react';
+import {useContext, useState} from 'react';
 import bg_1 from '../assets/bg_1.avif';
 import { FcGoogle } from "react-icons/fc";
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../context/AuthContext';
 
 
 const Login = () => {
@@ -12,6 +13,7 @@ const Login = () => {
   const [error, setError] = useState('');
 
   const navigate = useNavigate();
+  const {login} = useContext(AuthContext);
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -24,11 +26,8 @@ const Login = () => {
         password
       });
       
-      localStorage.setItem("user", JSON.stringify(res.data));
-
+      login(res.data);
       alert('Login successfully');
-      console.log(res.data);
-
       navigate('/');
     } catch (err) {
       console.error(err.response);
