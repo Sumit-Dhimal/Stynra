@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom"
 import logo from '../assets/logo.png';
 import { MdOutlineAccountCircle } from "react-icons/md";
+import { MdLogin } from "react-icons/md";
 import { FaCartShopping } from "react-icons/fa6";
 import { AuthContext } from "../context/AuthContext";
 import { useContext, useState } from "react";
@@ -38,7 +39,7 @@ const Navbar = () => {
             user ?
             (<MdOutlineAccountCircle className="text-2xl" onClick={() => setProfileOpen(!profileOpen)} />)
             :
-            (<Link className="text-2xl" to={'/login'}>Login</Link>)
+            (<Link className="text-2xl" to={'/login'}><MdLogin /></Link>)
           }
         </div>
 
