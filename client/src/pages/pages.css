@@ -18,6 +18,9 @@
   @apply w-full px-5 py-2 bg-orange-500 hover:bg-orange-400 rounded-xs font-semibold text-xl text-white cursor-pointer;
 }
 
+.btn_white {
+  @apply w-full px-5 py-2 bg-gray-200 hover:bg-gray-50 rounded-xs font-semibold text-xl text-gray-800 cursor-pointer;
+}
 .google {
   @apply w-full flex items-center justify-center gap-2 text-xl  border border-gray-300 rounded-xs 
         py-2 px-5 cursor-pointer bg-gray-200 hover:bg-gray-100 sm:max-w-[500px]; 

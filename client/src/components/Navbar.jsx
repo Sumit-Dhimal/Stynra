@@ -12,7 +12,7 @@ const Navbar = () => {
   const [profileOpen, setProfileOpen] = useState(false);
 
   return (
-    <nav className="mx-auto px-4 py-2 sm:px-8 shadow-xs">
+    <nav className="mx-auto w-full max-w-[1920px] h-16 sm:h-20 px-4 py-2 sm:px-16 shadow-xs">
       <div className="mx-auto px-4 py-3 flex justify-between items-center">
         {/* Logo */}
         <div>
